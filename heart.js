@@ -12,12 +12,10 @@ function createHeart() {
 
     heart.className = "heart";
 
-    heart.innerHTML = "❤";
+    heart.innerHTML = "❤️";
 
     heart.style.left = Math.random() * 100 + "vw";
-
     heart.style.fontSize = (20 + Math.random() * 20) + "px";
-
     heart.style.animationDuration = (4 + Math.random() * 4) + "s";
 
     hearts.appendChild(heart);
@@ -34,61 +32,65 @@ setInterval(createHeart, 250);
 
 
 // ==============================
-// Typewriter Letter
+// Birthday Letter
 // ==============================
 
 const message = `
 
-Happy Birthday Pam ❤️
+Happy Birthday Pam❤️
 
 Today is all about celebrating you.
 
 Thank you for every smile,
 every laugh,
-and every beautiful memory.
+and every beautiful memory we've shared.
 
-You deserve happiness,
+I hope this year brings you happiness,
 success,
 good health,
-and endless smiles.
+and endless reasons to smile.
 
-Never stop shining.
+You deserve all the love in the world.
 
-May all your dreams come true.
+May every dream of yours come true.
 
-Thank you for being part of my life.
+Stay happy,
+stay beautiful,
+and never stop smiling.
 
-Happy Birthday once again my girl ❤️
+Happy Birthday once again.
 
-By your Baby Praveen 
+With Love ❤️ -
+
+Your Baby Praveen 
 
 `;
 
 const typing = document.getElementById("typing");
 
-let index = 0;
+let i = 0;
 
-function typeWriter(){
+function typeWriter() {
 
-    if(!typing) return;
+    if (!typing) return;
 
-    if(index < message.length){
+    if (i < message.length) {
 
-        typing.innerHTML += message.charAt(index);
+        typing.innerHTML += message.charAt(i);
 
-        index++;
+        i++;
 
-        setTimeout(typeWriter,40);
+        setTimeout(typeWriter, 40);
 
     }
 
 }
 
-window.onload = ()=>{
+window.onload = () => {
 
     typeWriter();
 
-}
+};
 
 
 // ==============================
@@ -97,66 +99,70 @@ window.onload = ()=>{
 
 const celebrateBtn = document.getElementById("celebrateBtn");
 
-celebrateBtn.addEventListener("click",()=>{
+celebrateBtn.addEventListener("click", () => {
 
-    launchConfetti();
+    const music = document.getElementById("music");
 
-    const music=document.getElementById("music");
+    if (music) {
 
-    if(music){
+        music.currentTime = 0;
 
-        music.play().catch(()=>{});
+        music.play().catch(err => {
+            console.log(err);
+        });
 
     }
+
+    launchConfetti();
 
 });
 
 
 // ==============================
-// Confetti Animation
+// Confetti
 // ==============================
 
-function launchConfetti(){
+function launchConfetti() {
 
-    if(typeof confetti==="function"){
+    if (typeof confetti === "function") {
 
         confetti({
 
-            particleCount:180,
+            particleCount: 250,
 
-            spread:120,
+            spread: 180,
 
-            origin:{y:0.6}
+            origin: { y: 0.6 }
 
         });
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             confetti({
 
-                particleCount:180,
+                particleCount: 180,
 
-                spread:140,
+                spread: 140,
 
-                origin:{x:0.2,y:0.5}
+                origin: { x: 0.2, y: 0.5 }
 
             });
 
-        },300);
+        }, 300);
 
-        setTimeout(()=>{
+        setTimeout(() => {
 
             confetti({
 
-                particleCount:180,
+                particleCount: 180,
 
-                spread:140,
+                spread: 140,
 
-                origin:{x:0.8,y:0.5}
+                origin: { x: 0.8, y: 0.5 }
 
             });
 
-        },600);
+        }, 600);
 
     }
 
@@ -167,99 +173,98 @@ function launchConfetti(){
 // Floating Cake
 // ==============================
 
-const cake=document.querySelector(".cake");
+const cake = document.querySelector(".cake");
 
-if(cake){
+if (cake) {
 
-cake.animate([
+    cake.animate([
 
-{transform:"translateY(0px)"},
+        { transform: "translateY(0px)" },
 
-{transform:"translateY(-12px)"},
+        { transform: "translateY(-12px)" },
 
-{transform:"translateY(0px)"}
+        { transform: "translateY(0px)" }
 
-],{
+    ], {
 
-duration:2000,
+        duration: 2000,
 
-iterations:Infinity
+        iterations: Infinity
 
-});
-
-}
-
-
-// ==============================
-// Hero Animation
-// ==============================
-
-const photo=document.querySelector(".heartPhoto");
-
-if(photo){
-
-photo.animate([
-
-{
-
-opacity:0,
-
-transform:"scale(.8)"
-
-},
-
-{
-
-opacity:1,
-
-transform:"scale(1)"
-
-}
-
-],{
-
-duration:1500,
-
-fill:"forwards"
-
-});
+    });
 
 }
 
 
 // ==============================
-// Glow Celebrate Button
+// Image Animation
 // ==============================
 
-setInterval(()=>{
+const photo = document.querySelector(".heartPhoto");
 
-celebrateBtn.animate([
+if (photo) {
 
-{
+    photo.animate([
 
-boxShadow:"0 0 10px hotpink"
+        {
 
-},
+            opacity: 0,
 
-{
+            transform: "scale(.8)"
 
-boxShadow:"0 0 40px deeppink"
+        },
 
-},
+        {
 
-{
+            opacity: 1,
 
-boxShadow:"0 0 10px hotpink"
+            transform: "scale(1)"
+
+        }
+
+    ], {
+
+        duration: 1500,
+
+        fill: "forwards"
+
+    });
 
 }
 
-],{
 
-duration:1500
+// ==============================
+// Button Glow
+// ==============================
 
-});
+setInterval(() => {
 
-},1500);
+    celebrateBtn.animate([
 
+        {
 
-console.log("Heart Page Loaded ❤️");
+            boxShadow: "0 0 10px hotpink"
+
+        },
+
+        {
+
+            boxShadow: "0 0 40px deeppink"
+
+        },
+
+        {
+
+            boxShadow: "0 0 10px hotpink"
+
+        }
+
+    ], {
+
+        duration: 1500
+
+    });
+
+}, 1500);
+
+console.log("❤️ Heart Page Loaded ❤️");

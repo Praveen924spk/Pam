@@ -257,10 +257,7 @@ button:hover{
     font-size:28px;
 }
 
-.cover{
-    width:180px;
-    height:180px;
-}
+
 
 .quote{
     font-size:18px;
@@ -314,6 +311,27 @@ body{
     transition:0.3s;
 }
 
-.cover{
+
+
+.heartPhoto{
+    width:350px;
+    max-width:90%;
+    height: 500px;
+    display:block;
+    margin:30px auto;
     border-radius:20px;
+    border:6px solid white;
+    box-shadow:0 15px 35px rgba(255,105,180,.35);
+}
+
+.cover{
+    width:min(90vw, 320px);
+    height:auto;
+    max-height:550px;
+    object-fit:contain;
+    border-radius:25px;
+    border:8px solid white;
+    box-shadow:0 20px 45px rgba(255,105,180,.35);
+    display:block;
+    margin:20px auto;
 }
